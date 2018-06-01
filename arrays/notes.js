@@ -1,4 +1,4 @@
-const notes = [{}, {
+const notes = [{
     title: 'My next trip',
     body: 'I want to go to Spain'
 }, {
@@ -11,14 +11,24 @@ const notes = [{}, {
 
 console.log('***********************')
 
-const findNote2 = function(notes, noteTitle) {
-    return notes.find(function (note, index){
-        return note.title === noteTitle
+// const findNote2 = function(notes, noteTitle) {
+//     return notes.find(function (note, index){
+//         return note.title === noteTitle
+//     })
+// }
+// const note2 = findNote2(notes, 'home remodels')
+// console.log(note2)
+
+const findNotes = function(notes, query) {
+    return notes.filter(function(note, index){
+        // returns boolean true -> a new array with results
+        const isTitleMatch = note.title.toLowerCase().includes(query.toLowerCase())
+        const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase())
+        return isTitleMatch || isBodyMatch
     })
 }
-const note2 = findNote2(notes, 'home remodels')
-console.log(note2)
 
+console.log(findNotes(notes, 'eating'))
 
 // const findNote = function(notes, noteTitle) {
 //     const index = notes.findIndex(function (note, index){
