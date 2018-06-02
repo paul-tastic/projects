@@ -2,14 +2,31 @@ const notes = [{
     title: 'My next trip',
     body: 'I want to go to Spain'
 }, {
-    title: 'habits to work on',
+    title: 'Habits to work on',
     body: 'eating better'
 }, {
-    title: 'home remodels',
+    title: 'Home remodels',
     body: 'remodel bathrooms'
 }]
 
+console.log('**************')
+
+const sortNotes = function (notes) {
+    notes.sort(function(a, b) {
+        if (a.title.toLowerCase() < b.title.toLowerCase()) {
+            return -1
+        } else if (b.title.toLowerCase() < a.title.toLowerCase()) {
+            return 1
+        } else { 
+            return 0
+        }
+    })
+}
 console.log('***********************')
+
+sortNotes(notes)
+console.log(notes)
+
 
 // const findNote2 = function(notes, noteTitle) {
 //     return notes.find(function (note, index){
@@ -19,16 +36,16 @@ console.log('***********************')
 // const note2 = findNote2(notes, 'home remodels')
 // console.log(note2)
 
-const findNotes = function(notes, query) {
-    return notes.filter(function(note, index){
-        // returns boolean true -> a new array with results
-        const isTitleMatch = note.title.toLowerCase().includes(query.toLowerCase())
-        const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase())
-        return isTitleMatch || isBodyMatch
-    })
-}
+// const findNotes = function(notes, query) {
+//     return notes.filter(function(note, index){
+//         // returns boolean true -> a new array with results
+//         const isTitleMatch = note.title.toLowerCase().includes(query.toLowerCase())
+//         const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase())
+//         return isTitleMatch || isBodyMatch
+//     })
+// }
 
-console.log(findNotes(notes, 'eating'))
+// console.log(findNotes(notes, 'eating'))
 
 // const findNote = function(notes, noteTitle) {
 //     const index = notes.findIndex(function (note, index){

@@ -15,14 +15,30 @@ const todos = [{
     completed: false
 }]
 
-function getThingsTodo(todoList) {
-    // check complted === true
-    return todoList.filter(function(todo) {
-        return !todo.completed
+const sortTodos = function (todos) {
+    todos.sort(function(a, b){
+        if (a.completed < b.completed) {
+            return -1
+        } else if (b.completed < a.completed) {
+            return 1
+        } else {
+            return 0
+        }
     })
 }
 
-console.log(getThingsTodo(todos))
+sortTodos(todos)
+console.log(todos)
+
+// function getThingsTodo(todoList) {
+//     // check complted === true
+//     return todoList.filter(function(todo) {
+//         return !todo.completed
+//     })
+// }
+
+// console.log(getThingsTodo(todos))
+
     
 // console.log(todos)
 // console.log('************************')
